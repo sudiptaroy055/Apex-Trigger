@@ -1,14 +1,14 @@
 public class AccountTriggerHandler {
     // before Insert
-    public void handleBeforeInsert(List<Account> accountList){
+    public static void handleBeforeInsert(List<Account> accountList){
 		AccountTriggerHelper.updateAccountShippingAddress(accountList);
     }
     
-    public void handleBeforeUpdate(List<Account> accountList){
+    public static void handleBeforeUpdate(List<Account> accountList){
         AccountTriggerHelper.updateAccountShippingAddress(accountList);   
     }
    
-    public void handleAfterInsert(List<Account> accountList){
+    public static void handleAfterInsert(List<Account> accountList){
         
 	//---------------------------------------------------------------------------------------------------------------               
   

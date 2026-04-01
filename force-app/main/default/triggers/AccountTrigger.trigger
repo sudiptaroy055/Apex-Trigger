@@ -1,16 +1,3 @@
-trigger AccountTrigger on Account (before insert, before update, after insert) {
-    
-    if (Trigger.isBefore && Trigger.isInsert) {
-            AccountTriggerHandler handler = new AccountTriggerHandler();
-            handler.handleBeforeInsert(Trigger.new);
-    }
-    else if(Trigger.isBefore && Trigger.isUpdate){
-         AccountTriggerHandler handler = new AccountTriggerHandler();
-         handler.handleBeforeUpdate(Trigger.new);
-    }
-    else if (Trigger.isAfter && Trigger.isInsert) {
-          AccountTriggerHandler handler = new AccountTriggerHandler();
-          handler.handleAfterInsert(Trigger.new);
-    }
-    
+trigger AccountTrigger on Account (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
+    AccountTriggerDispatcher.dispatch(Trigger.operationType);    
 }
