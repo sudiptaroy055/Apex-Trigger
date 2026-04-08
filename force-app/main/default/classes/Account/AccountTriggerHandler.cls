@@ -1,15 +1,19 @@
 public class AccountTriggerHandler {
-    // before Insert
+    // Before Insert
     public static void handleBeforeInsert(List<Account> accountList){
 		AccountTriggerHelper.updateAccountShippingAddress(accountList);
+        AccountTriggerHelper.checkDuplicateAccountDetails(accountList);
     }
     
+    // Before Update
     public static void handleBeforeUpdate(List<Account> accountList){
-        AccountTriggerHelper.updateAccountShippingAddress(accountList);   
+        AccountTriggerHelper.updateAccountShippingAddress(accountList);
+        AccountTriggerHelper.checkDuplicateAccountDetails(accountList);
     }
    
+    // After Insert
     public static void handleAfterInsert(List<Account> accountList){
-        
+        AccountTriggerHelper.createLocations(accountList);
 	//---------------------------------------------------------------------------------------------------------------               
   
         //  Problem 3 - When the account is crated, Create a Task Record under the account and assign

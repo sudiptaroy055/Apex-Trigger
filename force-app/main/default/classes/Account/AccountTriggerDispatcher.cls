@@ -4,6 +4,7 @@ public class AccountTriggerDispatcher {
             
             when BEFORE_INSERT{
                 AccountTriggerHandler.handleBeforeInsert(Trigger.new);
+                
             }
              WHEN AFTER_INSERT{
                 AccountTriggerHandler.handleAfterInsert(Trigger.new);
