@@ -1,5 +1,6 @@
 public class EmailUtility {
     public static void sendEmail(){
+        List<Account> accList = new List<Account>();
         Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
         
         List<string> toAddress = new List<String>();
